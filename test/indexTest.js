@@ -6,13 +6,24 @@ describe('Palindrome', function() {
   it('should return true for "racecar"', function() {
     assert.isTrue(isPalindrome('racecar'));
   });
-  it('should return false for "hello"', function() {
-    assert.isFalse(isPalindrome('hello'));
+
+  it('should return true for "mom"', function() {
+    assert.isTrue(isPalindrome('mom'));
   });
-  it('should return false for "A man a plan a canal Panama"', function() {
-    assert.isFalse(isPalindrome('A man a plan a canal Panama')); // Fails due to spaces and case
+
+  it('should return true for "abba"', function() {
+    assert.isTrue(isPalindrome('abba'));
   });
-  it('should return true for an empty string', function() {
-    assert.isTrue(isPalindrome(''));
+
+  it('should return true for "a"', function() {
+    assert.isTrue(isPalindrome('a'));
+  });
+
+  it('should return false for "hi"', function() {
+    assert.isFalse(isPalindrome('hi'));
+  });
+
+  it('should return false for "robot"', function() {
+    assert.isFalse(isPalindrome('robot'));
   });
 });

@@ -1,27 +1,44 @@
-/*
-Pseudocode:
-1. Take the input string.
-2. Reverse the string by splitting it into an array, reversing the array, and joining it back into a string.
-3. Compare the original string with the reversed string.
-4. If they are equal, return true (it's a palindrome); otherwise, return false.
-*/
-
-// Function to check if a string is a palindrome
-function isPalindrome(str) {
-  // Reverse the string and compare it to the original
-  const reversedStr = str.split('').reverse().join('');
-  return str === reversedStr;
+// index.js
+function isPalindrome(word) {
+  for (let startIndex = 0; startIndex < word.length / 2; startIndex++) {
+    const endIndex = word.length - 1 - startIndex;
+    if (word[startIndex] !== word[endIndex]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-// Export the function for testing
+// Export the function
 module.exports = isPalindrome;
 
-// Test cases
-console.log('Testing isPalindrome function:');
-console.log('isPalindrome("madam"):', isPalindrome("madam")); // Expected: true
-console.log('isPalindrome("racecar"):', isPalindrome("racecar")); // Expected: true
-console.log('isPalindrome("robot"):', isPalindrome("robot")); // Expected: false
-console.log('isPalindrome("level"):', isPalindrome("level")); // Expected: true
-console.log('isPalindrome("hello"):', isPalindrome("hello")); // Expected: false
-console.log('isPalindrome("a"):', isPalindrome("a")); // Expected: true (single character)
-console.log('isPalindrome(""):', isPalindrome("")); // Expected: true (empty string)
+// Test cases for manual verification
+if (require.main === module) {
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("racecar"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("mom"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("abba"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("a"));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("hi"));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("robot"));
+}
