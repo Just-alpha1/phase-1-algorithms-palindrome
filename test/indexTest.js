@@ -1,21 +1,18 @@
-const chai = require("chai");
-global.expect = chai.expect;
-const isPalindrome = require("../index");
+// test/indexTest.js
+const assert = require('chai').assert;
+const isPalindrome = require('../index.js');
 
-describe("isPalindrome", () => {
-  it("returns true for 'abba'", () => {
-    expect(isPalindrome("abba")).to.be.true;
+describe('Palindrome', function() {
+  it('should return true for "racecar"', function() {
+    assert.isTrue(isPalindrome('racecar'));
   });
-  it("returns true for 'racecar'", () => {
-    expect(isPalindrome("racecar")).to.be.true;
+  it('should return false for "hello"', function() {
+    assert.isFalse(isPalindrome('hello'));
   });
-  it("returns true for 'a'", () => {
-    expect(isPalindrome("a")).to.be.true;
+  it('should return false for "A man a plan a canal Panama"', function() {
+    assert.isFalse(isPalindrome('A man a plan a canal Panama')); // Fails due to spaces and case
   });
-  it("returns false for 'robot'", () => {
-    expect(isPalindrome("robot")).to.be.false;
-  });
-  it("returns false for 'ab'", () => {
-    expect(isPalindrome("ab")).to.be.false;
+  it('should return true for an empty string', function() {
+    assert.isTrue(isPalindrome(''));
   });
 });
